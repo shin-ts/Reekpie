@@ -1,0 +1,2 @@
+brotli==1.0.7
+zstandard==0.13.0
