@@ -1,9 +1,6 @@
 """
 Reference implementation of the Reekpie decoder.
 Only v1.0 is supported (the only ever made).
-
-Author: tryamid (tripulse)
-License: WTFPL
 """
 
 import zstandard
