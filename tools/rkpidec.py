@@ -43,12 +43,12 @@ class ReekpieDecoder(ArgumentParser):
         # for parsing). NOTE: Put that into STDERR to avoid
         # it being piped with a program or a file by default.
         stderr.write((
-             "Channellayout: {channel_layout}\n"
-             "Endianness:    {endianness}\n"
              "Sampleformat:  {sample_format}\n"
              "Compression:   {compression}\n"
             f"Bytedepth:     {rkpihdr['bytedepth']}\n"
             f"Samplerate:    {rkpihdr['samplerate']}\n"
+             "Channellayout: {channel_layout}\n"
+             "Endianness:    {endianness}\n"
             f"Channels:      {rkpihdr['channels']}\n").format_map({
                 'channel_layout': ('interleaved', 'planar') \
                                 [rkpihdr['channellayout']],
