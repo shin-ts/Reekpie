@@ -21,22 +21,38 @@ Main code exists in the `tools/` folder, you’ve to install it manually as ther
 
 ### Usage
 
-An imaginary file is choosen for the input for demonstration purposes. The name is `reekapeeka.raw` which is a raw PCM data (bitdepth = 24, channels = 2, bytedepth = 3, samplerate = 48000, sampleformat = float).
+An imaginary file is choosen for the input for demonstration purposes. The name is `reekapeeka.raw` which is a raw PCM data (bitdepth = 24, channels = 2, bytedepth = 3, samplerate = 48000, sampleformat = float, endianness = little, channellayout = interleaved).
 
 > Extension convention for Reekpie files is either `.rkp` or `.rkpi`.
 
 <br/>
 
-Encapsulate PCM data with no compression at all. Note that the details about input must be given in advance because there’s no other way it can detect.
+Encapsulate PCM data with no compression at all. Note that the details about input must be given in advance because there’s no other way it can detect. <sup>(1)</sup>
 ```ps
-rkpienc 'reekapeeka.raw' -bytedepth 3 -samplerate 48000 -channels 2 'reekapeeka.rkp'
+$ rkpienc 'reekapeeka.raw' -bytedepth 3 -samplerate 48000 -channels 2 'reekapeeka.rkp'
 ```
 
-Encapsulate PCM data with 'brotli' compression. Yes, it does have compression but supports only some, either 'zstd' or 'brotli' or 'lzma'.
+Encapsulate PCM data with 'brotli' compression. Yes, it does have compression but supports only some, either 'zstd' or 'brotli' or 'lzma'. <sup>(2)</sup>
 
 ```ps
-rkpienc 'reekapeeka.raw' -bytedetpth 3 -samplerate 48000 -channels 2 -compression brotli 'reekapeeka.rkp'
+$ rkpienc 'reekapeeka.raw' -bytedetpth 3 -samplerate 48000 -channels 2 -compression brotli 'reekapeeka.rkp'
 ```
+
+<br/>
+Decapsulate PCM data from the Reekpie file we’ve just encoded (from the second example shown). It should spit out some data on the console like this.
+
+```bash
+$ rkpidec 'reekapeeka.rkpi' 'reekapeeka.raw'
+Sampleformat:  signed
+Compression:   brotli
+Bytedepth:     3
+Samplerate:    48000
+Channellayout: interleaved
+Endianness:    little
+Channels:      2
+```
+
+^ You use the to re-construct the audio properly. Ignore, 'Compression' as it’s only informal. 
 
 > #### Limitations
 > - **Compression**: 'brotli' or 'zstd' or 'lzma' or no compression at all.
@@ -44,7 +60,6 @@ rkpienc 'reekapeeka.raw' -bytedetpth 3 -samplerate 48000 -channels 2 -compressio
 > - **Samplerate**: 0 to 4294967295 (eg. 44100, 48000 are used more often).
 > - **Channels**: 0 to 63 (eg. 1, 2, 6 are used more often).
 > - **Sampleformats**: 'unsigned' or 'signed' or 'float' or 'adpcm' or 'a-law' or 'mu-law'.
-
 ---
 
 ### Contribution
