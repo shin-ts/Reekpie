@@ -1,8 +1,7 @@
 <h1 align=center>reekpie tools</h1>
 
-> a general purpose lossless audio-format tailored to be a replacement for the most popular format WAVE or AIFF.
-
-This is a reference implementation of the audio-format written in Python 3x, which supports all the features denoted in the specification.
+A general purpose lossless audio-format tailored to be a replacement for the most popular format WAVE or AIFF.
+This is a reference implementation of the audio-format written in Python 3x, supports all the features denoted in the specification.
 
 ![](https://img.shields.io/badge/License-WTFPL-blue)
 ![](https://img.shields.io/badge/Made%20with-Python%203.x-blue)
@@ -54,7 +53,7 @@ Endianness:    little
 Channels:      2
 ```
 
-^ You use this to re-construct the audio properly. Ignore the 'Compression' field as it’s only informal purposes. 
+<sup>^ You use this to re-construct the audio properly. Ignore the 'Compression' field as it’s only informal purposes.</sup>
 
 > #### Limitations
 > - **Compression**: ['brotli'][2] or ['zstd'][3] or ['lzma'][4] or no compression at all.
