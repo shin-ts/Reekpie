@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Reference implementation of the Reekpie encoder.
 Only v1.0 is supported (the only ever made).
