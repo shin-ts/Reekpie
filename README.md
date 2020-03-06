@@ -1,6 +1,6 @@
 <h1 align=center>reekpie tools</h1>
 
-> a general purpose lossless audio-format tailored to be a replacement for the most popular format WAVE.
+> a general purpose lossless audio-format tailored to be a replacement for the most popular format WAVE or AIFF.
 
 This is a reference implementation of the audio-format written in Python 3x, which supports all the features denoted in the specification.
 
@@ -28,14 +28,14 @@ An imaginary file is choosen for the input for demonstration purposes. The name 
 <br/>
 
 Encapsulate PCM data with no compression at all. Note that the details about input must be given in advance because there’s no other way it can detect. <sup>(1)</sup>
-```ps
+```bash
 $ rkpienc 'reekapeeka.raw' -bytedepth 3 -samplerate 48000 -channels 2 'reekapeeka.rkp'
 ```
 
 Encapsulate PCM data with 'brotli' compression. Yes, it does have compression but supports only some, either 'zstd' or 'brotli' or 'lzma'. <sup>(2)</sup>
 
-```ps
-$ rkpienc 'reekapeeka.raw' -bytedetpth 3 -samplerate 48000 -channels 2 -compression brotli 'reekapeeka.rkp'
+```bash
+$ rkpienc 'reekapeeka.raw' -bytedetpth 3 -samplerate 48000 -channels 2 -compression brotli 'reekapeeka.rkpi'
 ```
 
 <br/>
@@ -52,17 +52,23 @@ Endianness:    little
 Channels:      2
 ```
 
-^ You use the to re-construct the audio properly. Ignore, 'Compression' as it’s only informal. 
+^ You use this to re-construct the audio properly. Ignore the 'Compression' field as it’s only informal purposes. 
 
 > #### Limitations
-> - **Compression**: 'brotli' or 'zstd' or 'lzma' or no compression at all.
+> - **Compression**: ['brotli'][2] or ['zstd'][3] or ['lzma'][4] or no compression at all.
 > - **Bytedepth**: 1, 2, 3, 4, 8 (5, 6, 7 are allowed but not used often so excluded).
 > - **Samplerate**: 0 to 4294967295 (eg. 44100, 48000 are used more often).
 > - **Channels**: 0 to 63 (eg. 1, 2, 6 are used more often).
-> - **Sampleformats**: 'unsigned' or 'signed' or 'float' or 'adpcm' or 'a-law' or 'mu-law'.
+> - **Sampleformats**: 'unsigned' or 'signed' or 'float' or ['adpcm'][5] or ['a-law'][6] or ['mu-law'][7].
 ---
 
 ### Contribution
 Contribution can be done either making the reference implementation better or enriching the specification. If you like to do a change fork this project and file a pull request with describing what have you changed what’s the point of it.
 
 [1]: https://www.python.org/downloads/
+[2]: https://brotli.org/
+[3]: https://facebook.github.io/zstd/
+[4]: https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm
+[5]: https://en.wikipedia.org/wiki/Adaptive_differential_pulse-code_modulation
+[6]: https://en.wikipedia.org/wiki/A-law_algorithm
+[7]: https://en.wikipedia.org/wiki/%CE%9C-law_algorithm
