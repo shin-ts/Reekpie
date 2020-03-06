@@ -53,7 +53,7 @@ Endianness:    little
 Channels:      2
 ```
 
-<sup>^ You use this to re-construct the audio properly. Ignore the 'Compression' field as it’s only informal purposes.</sup>
+<sup>^ This information is required to reconstruct the audio, ignore 'Compression' as it’s informal only.</sup>
 
 > #### Limitations
 > - **Compression**: ['brotli'][2] or ['zstd'][3] or ['lzma'][4] or no compression at all.
