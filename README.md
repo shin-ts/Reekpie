@@ -15,9 +15,11 @@ This is a reference implementation of the audio-format written in Python 3x, whi
 ### Installation
 [Python >=3.5][1] interpreter is required for executing the tools (make sure that it’s in the path). Note that, installation methods might differ as of environment (eg. on a Debian based system one might run `apt-get install python3 python3-pip`, `pacman -S python-pip` on a ArchLinux based system).
 
-Make sure that the output of `where python` or `which python` or `which python3` and `where pip` or `which pip` or `which pip3` isn’t blank.
+Make sure that `python` and `pip` are both in PATH, otherwise it will fail (eg. `where python pip` shouldn't return blank lines, replace `where` with `which` if Windows NT).
 
 Main code exists in the `tools/` folder, you’ve to install it manually as there’s no PyPI package yet for this tool. Switch the current directory to there and execute `pip -r requirements.txt` (replace `pip` with `pip3` if doesn’t work).
+
+Python files of `tools/` must be in the PATH variable too to call the script from anywhere in the filesystem. On Windows associate Python files with the interpreter *(TODO: fix this issue on NT based systems with a non-bash shell)*.
 
 ### Usage
 
