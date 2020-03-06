@@ -64,7 +64,7 @@ Channels:      2
 ---
 
 ### Contribution
-Contribution can be done either making the reference implementation better or enriching the specification. If you like to do a change fork this project and file a pull request with describing what have you changed what’s the point of it.
+Contribution can be done either making the reference implementation better or enriching the specification. If you want a change then fork this project and do a pull-request describing the change and how does it benefit the thing.
 
 [1]: https://www.python.org/downloads/
 [2]: https://brotli.org/
